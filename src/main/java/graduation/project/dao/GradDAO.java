@@ -6,8 +6,8 @@ import graduation.project.vo.GradVO;
 
 public interface GradDAO {
 	
-	List<GradVO> selectAll() throws Exception; 
-	GradVO selectByNo(int boardNo) throws Exception;
-	void insert(GradVO board) throws Exception;
+	List<CustomerVO> selectAll() throws Exception; 
+	CustomerVO selectByNo(int boardNo) throws Exception;
+	void insert(CustomerVO board) throws Exception;
 
 }
