@@ -1,10 +1,18 @@
 package graduation.project.vo;
 
+import javax.validation.constraints.NotEmpty;
+
 public class CustomerVO {
+	
+	@NotEmpty(message = "필수 항목입니다.")
 	private String id;
+	@NotEmpty(message = "필수 항목입니다.")
 	private String pwd;
+	@NotEmpty(message = "필수 항목입니다.")
 	private String name;
+	@NotEmpty(message = "필수 항목입니다.")
 	private String phone;
+	@NotEmpty(message = "필수 항목입니다.")
 	private String register_num;
 	
 	

@@ -5,6 +5,7 @@
 	<title>Home</title>
 </head>
 <body>
+	<h1>현재 계정 : ${ logVO.name }</h1>
 	<a href="${ pageContext.request.contextPath }/signUp">회원가입</a><br>
 	<c:if test="${ empty logVO }">
 		<a href="${ pageContext.request.contextPath }/login">로그인</a><br>

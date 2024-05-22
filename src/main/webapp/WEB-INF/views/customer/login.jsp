@@ -9,7 +9,7 @@
 	let checkForm = function(){
 		let f = document.loginForm
 		let id = f.id
-		let pwd = f.password
+		let pwd = f.pwd
 		
 		if(id.value === ''){
 			alert('아이디를 입력하세요.')
@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name="password"></td>
+					<td><input type="password" name="pwd"></td>
 				</tr>
 			</table>
 			<br>

@@ -7,4 +7,14 @@
 		select * from bank_customers
 		 where id = #{id} and pwd = #{pwd}
 	</select>
+	
+	<select id="idCheck" parameterType="customerVO" resultType="customerVO">
+		select * from bank_customers
+		 where id = #{id} or register_num = #{register_num}
+	</select>
+	
+	<insert id="insertCustomer" parameterType="customerVO">
+		insert into bank_customers
+		 values(#{id}, #{pwd}, #{name}, #{phone}, #{register_num})
+	</insert>
 </mapper>
