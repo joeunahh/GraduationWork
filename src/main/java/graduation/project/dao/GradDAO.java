@@ -2,7 +2,7 @@ package graduation.project.dao;
 
 import java.util.List;
 
-import graduation.project.vo.GradVO;
+import graduation.project.vo.CustomerVO;
 
 public interface GradDAO {
 	
