@@ -13,5 +13,13 @@
 	<c:if test="${ not empty logVO }">
 		<a href="${ pageContext.request.contextPath }/logout">로그아웃</a>
 	</c:if>
+	
+	<c:if test="${ empty logVO }">
+		<a href="${ pageContext.request.contextPath }/updateForm">회원정보수정</a><br>
+	</c:if> <!-- 연결 안됨 -->
+	<c:if test="${ empty logVO }">
+		<a href="${ pageContext.request.contextPath }/deleteForm">회원탈퇴</a><br>
+	</c:if> <!-- 연결 안됨 -->
+	
 </body>
 </html>
