@@ -16,7 +16,7 @@ import graduation.project.service.CustomerService;
 import graduation.project.vo.CustomerVO;
 
 @Controller
-public class CustomerController {
+public class CustomerController { // 사용자 로그인 로그아웃 회원가입
 	
 	@Autowired
 	private CustomerService service;
