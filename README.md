@@ -3,3 +3,7 @@
 <hr>
 <h2>2024년 05월 28일</h2><br>
 계좌 개설기능 구현중...머리 터질거 같음
+
+회원정보수정과 탈퇴 구현중
+-> updateForm.jsp, updatePro.jsp, deleteForm.jsp ...
+-> 404 에러 뜸
