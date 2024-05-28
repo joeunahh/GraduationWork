@@ -35,14 +35,4 @@ public class BankController { //은행
 	public String contact() {
 		return "example/contact";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
