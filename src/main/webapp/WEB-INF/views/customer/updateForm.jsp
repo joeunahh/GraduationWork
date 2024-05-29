@@ -17,7 +17,7 @@
 
 </script>
 </head>
-<body>
+<body> 
 	<h1>WebContent/member/updateForm.jsp</h1>
 	
 	<%
@@ -32,6 +32,8 @@
 	CustomerVO user = new CustomerVO(); 
 	
 	%>
+	
+	<!-- 코드 참고 : https://heezit.tistory.com/75 -->
  
 	<h2> 회원정보수정 </h2>
 		<fieldset>

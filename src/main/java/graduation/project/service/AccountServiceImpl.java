@@ -8,8 +8,7 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDAO dao;
 	
 	@Override
-	public void openAccount(AccountVO acc) {
+	public void openAccount(AccountVO acc) throws Exception {
 		dao.openAcc(acc);
 	}
-
 }
