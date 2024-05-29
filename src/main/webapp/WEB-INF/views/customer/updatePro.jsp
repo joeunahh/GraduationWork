@@ -17,9 +17,9 @@
 	
 	<jsp:setProperty property="*" name="mb" />
 	<%
-		System.out.println("수정할 데이터: " + mb);
-		MemberVO user = new MemberVO();
-		int result = user.updateMember(user);
+		//System.out.println("수정할 데이터: " + mb);
+		//MemberVO user = new MemberVO();
+		//int result = user.updateMember(user);
 	
 	%>
 	

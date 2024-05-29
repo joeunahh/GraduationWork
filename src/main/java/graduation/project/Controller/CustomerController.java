@@ -62,4 +62,10 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 			return "customer/signUp";
 		}
 	}
+	
+	@PostMapping("/updateForm")
+	public String update(CustomerVO vo) {
+		service.(vo);
+		return "customer/updateForm";
+	}
 }
