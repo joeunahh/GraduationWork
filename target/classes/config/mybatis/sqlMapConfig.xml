@@ -5,7 +5,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="graduation.project.vo.CustomerVO" alias="customerVO"/>
+<<<<<<< HEAD
 	<!--  	<typeAlias type="graduation.project.vo.TransactionVO" alias="TransactionVO"/> -->
+=======
+		<typeAlias type="graduation.project.vo.AccountVO" alias="accountVO"/>
+>>>>>>> aee62acba5e88060a28807dcc159e7d471b10dff
 	</typeAliases>
 	
 </configuration>
