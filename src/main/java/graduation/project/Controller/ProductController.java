@@ -1,5 +1,5 @@
 package graduation.project.Controller;
 
-public class GradController {
+public class ProductController {
 
 }
