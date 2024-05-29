@@ -5,4 +5,5 @@
 계좌 개설기능 구현중...머리 터질거 같음<br>
 회원정보수정과 탈퇴 구현중<br>
 -> updateForm.jsp, updatePro.jsp, deleteForm.jsp ...<br>
--> 404 에러 뜸
+-> 404 에러 뜸<br>
+  -->> 해결 못하면 일단 push하고 제가 가져가서 확인하겠음 - 준서
