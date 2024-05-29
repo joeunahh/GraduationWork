@@ -7,4 +7,11 @@
 		insert into bank_account(account_number, account_pwd, account_holder, account_nicname, account_id)
 		 values(#{accNo}, #{accPwd}, #{name}, #{accName}, #{id})
 	</insert>
+	
+	<select id="selectAccMy" parameterType="String" resultType="accountVO">
+		select account_number, account_holder, account_nicname, balance, 
+		 to_char(account_date, 'yyyy-mm-dd') as date
+		 from bank_account
+		 where account_id = #{id}
+	</select>
 </mapper>

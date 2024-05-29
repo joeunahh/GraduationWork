@@ -14,11 +14,12 @@ public class AccountVO {
 	private String accName;
 	private String id;
 	private int balance;
+	private String date;
 	
 	public AccountVO() {
 	}
 	
-	public AccountVO(int accNo, int accPwd, String name, String accName, String id, int balance) {
+	public AccountVO(int accNo, int accPwd, String name, String accName, String id, int balance, String date) {
 		super();
 		this.accNo = accNo;
 		this.accPwd = accPwd;
@@ -26,6 +27,7 @@ public class AccountVO {
 		this.accName = accName;
 		this.id = id;
 		this.balance = balance;
+		this.date = date;
 	}
 	
 	public String getAccName() {
@@ -64,11 +66,17 @@ public class AccountVO {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	
 	@Override
 	public String toString() {
 		return "AccountVO [accNo=" + accNo + ", accPwd=" + accPwd + ", name=" + name + ", accName=" + accName + ", id="
-				+ id + ", balance=" + balance + "]";
+				+ id + ", balance=" + balance + ", date=" + date + "]";
 	}
 	
 	

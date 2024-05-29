@@ -1,10 +1,13 @@
 package graduation.project.Controller;
 
+import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +23,7 @@ import graduation.project.vo.CustomerVO;
 @RequestMapping("/")
 public class BankController { //은행 
 	
+	@Autowired
 	private AccountService service;
 	
 	@RequestMapping("bank/")
@@ -52,7 +56,7 @@ public class BankController { //은행
 	}
 	
 	@GetMapping("accountOpen")
-	public String openAcc(HttpSession session, Model model) {
+	public String openAccForm(HttpSession session, Model model) {
 		CustomerVO customer = (CustomerVO)session.getAttribute("logVO");
 		
 		AccountVO acc = new AccountVO();
@@ -68,7 +72,7 @@ public class BankController { //은행
 		}else {
 			Random r = new Random();
 			int no = 0;
-			for(int i = 0; i < 9; i++) {
+			for(int i = 0; i < 12; i++) {
 	            int digit = r.nextInt(10);
 	            no = no * 10 + digit;
 	        }
@@ -77,12 +81,23 @@ public class BankController { //은행
 			
 			acc.setId(log.getId());
 			acc.setAccNo(no);
-			if(acc.getAccName().equals("")) {
-				acc.setAccName(null);
+			if(!acc.getAccName().equals("")) {
+				acc.setAccName(acc.getAccName());
 			}
 			System.out.println(acc);
 			service.openAccount(acc);
 			return "redirect:/";
 		}
+	}
+	
+	@GetMapping("accountList")
+	public String accountList(HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		String id = session.getId();
+		List<AccountVO> list = service.selectAccMy(id);
+		
+		request.setAttribute("account", list);
+		
+		return "bank/accList";
 	}
 }

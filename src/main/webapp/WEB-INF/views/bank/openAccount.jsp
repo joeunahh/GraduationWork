@@ -15,6 +15,13 @@
 		})
 	})
 </script>
+<style>
+	.error{
+		color: red;
+		font-size: 50%;
+		font-weight: bold;
+	}
+</style>
 </head>
 <body>
 	<div align="center">

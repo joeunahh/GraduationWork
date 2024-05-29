@@ -21,6 +21,12 @@
 		font-size: 50%;
 		font-weight: bold;
 	}
+	
+	.txt{
+		color: red;
+		font-size: 50%;
+		font-weight: bold;
+	}
 </style>
 </head>
 <body>
@@ -30,35 +36,39 @@
 		<form:form method="post" modelAttribute="customerVO">
 			<table border="1" style="width: 30%">
 				<tr>
-					<th width="25%">아이디</th>
+					<th></th>
+					<td align="right"><small class="txt">* 표시는 필수 항목입니다.</small></td>
+				</tr>
+				<tr>
+					<th width="25%">아이디*</th>
 					<td>
 						<form:input path="id"/>
 						<form:errors path="id" class="error"/>
 					</td>
 				</tr>
 				<tr>
-					<th width="25%">비밀번호</th>
+					<th width="25%">비밀번호*</th>
 					<td>
 						<form:password path="pwd"/>
 						<form:errors path="pwd" class="error"/>
 					</td>
 				</tr>
 				<tr>
-					<th width="25%">이름</th>
+					<th width="25%">이름*</th>
 					<td>
 						<form:input path="name"/>
 						<form:errors path="name" class="error"/>
 					</td>
 				</tr>
 				<tr>
-					<th width="25%">전화번호</th>
+					<th width="25%">전화번호*</th>
 					<td>
 						<form:input path="phone"/>
 						<form:errors path="phone" class="error"/>
 					</td>
 				</tr>
 				<tr>
-					<th width="25%">주민번호</th>
+					<th width="25%">주민번호*</th>
 					<td>
 						<form:input path="register_num"/>
 						<form:errors path="register_num" class="error"/>
@@ -66,10 +76,10 @@
 				</tr>
 			</table>
 			<br>
-			<button type="submit" class="btn btn-outline-dark">가입</button><br>
+			<button type="submit">가입</button><br>
 		</form:form>
 		<br>
-		<button id="mainBtn" class="btn btn-outline-dark">메인화면으로</button>
+		<button id="mainBtn">메인화면으로</button>
 	</div>
 </body>
 </html>

@@ -18,5 +18,8 @@
 	<c:if test="${ not empty logVO }">
 		<br><a href="${ pageContext.request.contextPath }/accountOpen">개좌 개설</a>
 	</c:if>
+	<c:if test="${ not empty logVO }">
+		<br><a href="${ pageContext.request.contextPath }/accountList">내 계좌 보기</a>
+	</c:if>
 </body>
 </html>
