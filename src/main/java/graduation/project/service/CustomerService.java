@@ -11,4 +11,6 @@ public interface CustomerService {
 	List<CustomerVO> checkID(CustomerVO customer) throws Exception;
 	
 	void signUp(CustomerVO customer) throws Exception;
+
+	void UpdateForm(CustomerVO customer);
 }

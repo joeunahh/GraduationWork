@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	public void UpdateForm(CustomerVO customer) {
-		
+		//dao.updateCustomer(customer);
 	}
 	
 	
