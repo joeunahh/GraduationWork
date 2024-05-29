@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import graduation.project.service.CustomerService;
@@ -63,9 +64,11 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		}
 	}
 	
-	@PostMapping("/updateForm")
-	public String update(CustomerVO vo) {
-		service.(vo);
+	@GetMapping("updateForm")
+	public String updateForm(Model model, HttpSession session) {
+		CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
+		if(userVO==null) return "customer/login";
+		model.addAttribute("service", userVO);
 		return "customer/updateForm";
 	}
 }

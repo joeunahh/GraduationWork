@@ -31,6 +31,13 @@ public class CustomerServiceImpl implements CustomerService {
 		dao.insertCustomer(customer);
 	}
 	
+	@Override
+	public void UpdateForm(CustomerVO customer) {
+		
+	}
+	
+	
+	
 	
 
 }

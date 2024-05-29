@@ -5,54 +5,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript">
-	function check(){
-		if(document.fr.pass.value == ""){
-			alert("비밀번호를 입력하세요! ");
-			document.fr.pass.focus();
-			return false;
-		}
-	}	
-
-</script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보 수정</title>
 </head>
 <body> 
-	<h1>WebContent/member/updateForm.jsp</h1>
-	
-	<%
-	//세션값 제어
-	String id = (String)session.getAttribute("id");
-	
-	if(id == null){
-		response.sendRedirect("login.jsp");
-	}
-	
-	//해당 회원의 모든 정보를 가져와서 화면에 출력
-	CustomerVO user = new CustomerVO(); 
-	
-	%>
-	
-	<!-- 코드 참고 : https://heezit.tistory.com/75 -->
- 
-	<h2> 회원정보수정 </h2>
-		<fieldset>
-			<legend> 은행 회원정보 수정 </legend>
-			<!--  아이디, 비밀번호, 이름, 전화번호, 주민번호 -->
-			<form action="login.jsp" method="post" name="fr" onsubmit="return check();">
-				아이디 : <input type="text" name="id" value="<%=user.getId()%>" readonly="readonly"><br>
-				비밀번호 : <input type="text" name="pass" placeholder="비밀번호를 입력하시오." ><br>
-				이름 : <input type="text" name="name" value="<%=user.getName()%>"><br>
-				전화번호 : <input type="text" name="phone" value="<%=user.getPhone()%>"><br>
-				주민번호 : <input type="text" name="register_num" value="<%=user.getRegister_num() %>" readonly="readonly"><br>
-				
-				<input type="submit" value="회원수정">
-				<input type="reset" value="초기화">
+	 <div style="padding: 20px;">
+        
+        <h3>회원정보 수정</h3>
+        <hr />
+        <form th:action="@{/member/update}" method="post">
+
+            아이디: <input type="text" name="id" th:value="${member.id}" readonly /> <br />
+            이름: <input type="text" name="name" th:value="${member.name}" /> <br />
+             <br />
+            <input type="submit" value="수정" />
 			</form>
 		
 		</fieldset>
-		
-		
-
+	</div>
 </body>
 </html>
