@@ -64,8 +64,8 @@ public class BankController { //은행
 	@GetMapping("accountList")
 	public String accountList(HttpServletRequest request) throws Exception{
 		HttpSession session = request.getSession();
-		String id = session.getId();
-		List<AccountVO> list = service.selectAccMy(id);
+		CustomerVO get = (CustomerVO)session.getAttribute("logVO");
+		List<AccountVO> list = service.selectAccMy(get.getId());
 		
 		request.setAttribute("account", list);
 		

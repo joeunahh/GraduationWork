@@ -9,8 +9,8 @@
 	</insert>
 	
 	<select id="selectAccMy" parameterType="String" resultType="accountVO">
-		select account_number, account_holder, account_nicname, balance, 
-		 to_char(account_date, 'yyyy-mm-dd') as date
+		select account_number as accNo, account_holder as name, account_nicname as accName, balance, 
+		 to_char(account_date, 'yyyy-mm-dd') as "date"
 		 from bank_account
 		 where account_id = #{id}
 	</select>

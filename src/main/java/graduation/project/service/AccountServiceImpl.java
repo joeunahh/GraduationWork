@@ -15,7 +15,6 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDAO dao;
 	
 	@Override
-<<<<<<< HEAD
 	public void openAccount(AccountVO acc) throws Exception{
 		dao.openAcc(acc);
 	}
@@ -25,10 +24,4 @@ public class AccountServiceImpl implements AccountService {
 		List<AccountVO> list = dao.selectAccMy(id);
 		return list;
 	}
-
-=======
-	public void openAccount(AccountVO acc) throws Exception {
-		dao.openAcc(acc);
-	}
->>>>>>> eaacdf7f0af8d61f408ded6517c23652c241d10e
 }
