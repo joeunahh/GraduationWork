@@ -8,9 +8,9 @@
 		 where id = #{id} and pwd = #{pwd}
 	</select>
 	
-	<select id="idCheck" parameterType="customerVO" resultType="customerVO">
+	<select id="idCheck" parameterType="String" resultType="customerVO">
 		select * from bank_customers
-		 where id = #{id} or register_num = #{register_num}
+		 where id = #{id}
 	</select>
 	
 	<insert id="insertCustomer" parameterType="customerVO">

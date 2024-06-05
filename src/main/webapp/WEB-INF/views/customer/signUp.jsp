@@ -8,12 +8,31 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
 	$(document).ready(function(){
 		$('#mainBtn').click(function(){
 			location.href = "${ pageContext.request.contextPath }"
 		})
 	})
+	
+	let checkId = function(id){
+		$.ajax({
+			url : '${ pageContext.request.contextPath }/checkId',
+			type : 'POST',
+			data : { id: $('#id').val() },
+			success : function(result){
+				console.log(result)
+				if(result === true){
+					alert('사용가능한 아이디입니다.')
+				}else{
+					alert('이미 사용중인 아이디입니다.')
+				}
+			}, error : function(){
+				alert('오류가 발생했습니다. 다시 시도해주세요.')
+			}
+		})
+	}
 </script>
 <style>
 	.error{
@@ -42,7 +61,8 @@
 				<tr>
 					<th width="25%">아이디*</th>
 					<td>
-						<form:input path="id"/>
+						<form:input path="id" id="id"/>
+						<button onclick="checkId(id)">중복 체크</button>
 						<form:errors path="id" class="error"/>
 					</td>
 				</tr>
