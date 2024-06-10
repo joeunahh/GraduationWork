@@ -44,7 +44,7 @@
 			<c:forEach items="${ account }" var="acc">
 				<tr>
 					<td>${ acc.name }</td>
-					<td>${ acc.accNo }</td>
+					<td><a href="${ pageContext.request.contextPath }/history/${ acc.accNo }">${ acc.accNo }</a></td>
 					<td>${ acc.accName }</td>
 					<td>${ acc.balance }</td>
 					<td>${ acc.date }</td>

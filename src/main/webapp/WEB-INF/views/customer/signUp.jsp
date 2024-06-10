@@ -35,13 +35,7 @@
 	}
 </script>
 <style>
-	.error{
-		color: red;
-		font-size: 50%;
-		font-weight: bold;
-	}
-	
-	.txt{
+	.error, .txt{
 		color: red;
 		font-size: 50%;
 		font-weight: bold;

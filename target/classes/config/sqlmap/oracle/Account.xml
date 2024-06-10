@@ -14,4 +14,11 @@
 		 from bank_account
 		 where account_id = #{id}
 	</select>
+	
+	<select id="selectMyHis" parameterType="int" resultType="historyVO">
+		select no, acc_no as accNo, his_category as category, his_amount as amount,
+		 to_char(his_date, 'yyyy-mm-dd') as "date", his_name as name
+		 from bank_history
+		 where acc_no = #{no}
+	</select>
 </mapper>

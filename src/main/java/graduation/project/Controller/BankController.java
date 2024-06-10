@@ -12,12 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import graduation.project.service.AccountService;
 import graduation.project.vo.AccountVO;
 import graduation.project.vo.CustomerVO;
+import graduation.project.vo.HistoryVO;
 
 @Controller
 @RequestMapping("/")
@@ -70,5 +72,14 @@ public class BankController { //은행
 		request.setAttribute("account", list);
 		
 		return "bank/accList";
+	}
+	
+	@GetMapping("history/{no}")
+	public String accHistory(@PathVariable("no") int accNo, HttpServletRequest request) throws Exception{
+		List<HistoryVO> list = service.selectMyHis(accNo);
+		System.out.println(list);
+		request.setAttribute("history", list);
+		
+		return "bank/accHistory";
 	}
 }

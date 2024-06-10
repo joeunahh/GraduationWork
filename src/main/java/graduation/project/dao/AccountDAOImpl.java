@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import graduation.project.vo.AccountVO;
+import graduation.project.vo.HistoryVO;
 
 @Repository
 public class AccountDAOImpl implements AccountDAO {
@@ -22,6 +23,12 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public List<AccountVO> selectAccMy(String id) throws Exception{
 		List<AccountVO> list = session.selectList("dao.AccountDAO.selectAccMy", id);
+		return list;
+	}
+
+	@Override
+	public List<HistoryVO> selectMyHis(int accNo) throws Exception {
+		List<HistoryVO> list = session.selectList("dao.AccountDAO.selectMyHis", accNo);
 		return list;
 	}
 
