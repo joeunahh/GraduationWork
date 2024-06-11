@@ -1,8 +1,11 @@
 package graduation.project.Controller;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+>>>>>>> 78c26ca257f62db6fe52b19fce46c2283ccc9dbf
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -14,7 +17,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestMapping;
+=======
+>>>>>>> 78c26ca257f62db6fe52b19fce46c2283ccc9dbf
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import graduation.project.service.CustomerService;
@@ -57,10 +63,10 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 	
 	@PostMapping("/signUp")
 	public String signUp(@Valid CustomerVO customer, BindingResult result) throws Exception{
-		List<CustomerVO> idCheck = service.checkID(customer);
+		CustomerVO idCheck = service.checkID(customer.getId());
 		if(result.hasErrors()) {
 			return "customer/signUp";			
-		}else if(idCheck.size() == 0) {
+		}else if(idCheck == null) {
 			service.signUp(customer);
 			return "redirect:/";
 		}else {
@@ -68,10 +74,10 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		}
 	}
 	
-	@GetMapping("updateForm")
+	@GetMapping("/updateForm")
 	public String updateForm(Model model, HttpSession session) {
 		CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
-		if(userVO==null) return "customer/login";
+		if(userVO==null) return "customer/login";	// 로그아웃 버튼은 로그인시에 나오기때문에 이줄 코드는 딱히 필요없음
 		model.addAttribute("service", userVO);
 		return "customer/updateForm";
 	}
@@ -94,4 +100,15 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		//CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
 		
 	//}
+	
+	@PostMapping("/checkId")
+	@ResponseBody
+	public boolean checkId(@RequestBody String id) throws Exception {
+		CustomerVO check = service.checkID(id); 
+		if(check != null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

@@ -1,6 +1,5 @@
 package graduation.project.service;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<CustomerVO> checkID(CustomerVO customer) throws Exception {
-		List<CustomerVO> check = dao.idCheck(customer);
+	public CustomerVO checkID(String id) throws Exception {
+		CustomerVO check = dao.idCheck(id);
 		return check;
 	}
 
@@ -35,9 +34,5 @@ public class CustomerServiceImpl implements CustomerService {
 	public void UpdateForm(CustomerVO customer) {
 		//dao.updateCustomer(customer);
 	}
-	
-	
-	
-	
 
 }

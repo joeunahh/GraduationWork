@@ -9,9 +9,16 @@
 	</insert>
 	
 	<select id="selectAccMy" parameterType="String" resultType="accountVO">
-		select account_number, account_holder, account_nicname, balance, 
-		 to_char(account_date, 'yyyy-mm-dd') as date
+		select account_number as accNo, account_holder as name, account_nicname as accName, balance, 
+		 to_char(account_date, 'yyyy-mm-dd') as "date"
 		 from bank_account
 		 where account_id = #{id}
+	</select>
+	
+	<select id="selectMyHis" parameterType="int" resultType="historyVO">
+		select no, acc_no as accNo, his_category as category, his_amount as amount,
+		 to_char(his_date, 'yyyy-mm-dd') as "date", his_name as name
+		 from bank_history
+		 where acc_no = #{no}
 	</select>
 </mapper>

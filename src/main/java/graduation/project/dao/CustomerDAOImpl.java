@@ -1,6 +1,5 @@
 package graduation.project.dao;
 
-import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +20,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public List<CustomerVO> idCheck(CustomerVO customer) {
-		List<CustomerVO> check = session.selectList("dao.CustomerDAO.idCheck", customer);
+	public CustomerVO idCheck(String id) {
+		CustomerVO check = session.selectOne("dao.CustomerDAO.idCheck", id);
 		return check;
 	}
 
