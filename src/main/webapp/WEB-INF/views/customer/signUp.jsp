@@ -9,9 +9,30 @@
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-	$(document).ready(function(){
-		$('#mainBtn').click(function(){
-			location.href = "${ pageContext.request.contextPath }"
+		//'아이디 중복 체크'버튼 클릭 시 비동기 통신으로 서버에 전송 
+		//https://kingchobocoding.tistory.com/11
+		$(document).ready(function() {
+			$('button').click(function() {
+				//0. 아이디 추출
+				let id = $('#id').val()
+				//1. url 설정 
+					$.ajax({ 
+						url: 'param.jsp',
+						type: 'post',
+						data: { id:id },
+						success : function(result) {
+								if(result.cnt > 0) {
+									alert('아이디가 존재합니다. 다른 아이디를 입력해주세요.')
+								} else {
+									alert('사용 가능한 아이디입니다.')
+									idck = 1;
+								} 
+							},
+							error : function(error) {
+								alert("error : " + error);
+					}
+				} 
+			}
 		})
 	})
 </script>
@@ -44,6 +65,7 @@
 					<td>
 						<form:input path="id"/>
 						<form:errors path="id" class="error"/>
+						<button>아이디 중복 체크</button>
 					</td>
 				</tr>
 				<tr>

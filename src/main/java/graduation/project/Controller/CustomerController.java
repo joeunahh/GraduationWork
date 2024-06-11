@@ -1,6 +1,8 @@
 package graduation.project.Controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -10,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import graduation.project.service.CustomerService;
 import graduation.project.vo.CustomerVO;
@@ -71,6 +75,19 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		model.addAttribute("service", userVO);
 		return "customer/updateForm";
 	}
+	
+	@RequestMapping("/login") 
+		@ResponseBody
+		public Map<Object, Object> idcheck(@RequestBody String userid) {
+			int count = 0;
+			Map<Object, Object> map = new HashMap<Object, Object>();
+			
+			count = CustomerService.idcheck(userid);
+			map.put("cnt", count);
+			
+			return map;
+	}
+	
 	
 	//@GetMapping("deleteForm")
 	//public String deleteForm() {

@@ -13,4 +13,6 @@ public interface CustomerService {
 	void signUp(CustomerVO customer) throws Exception;
 
 	void UpdateForm(CustomerVO customer);
+	
+	//void idcheck();
 }

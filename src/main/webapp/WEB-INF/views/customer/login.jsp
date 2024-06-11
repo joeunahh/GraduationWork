@@ -10,6 +10,7 @@
 		let f = document.loginForm
 		let id = f.id
 		let pwd = f.pwd
+		var idck = 0; //아이디 체크 여부 확인(아이디 중복일 경우 = 0, 중복이 아닐 경우 = 1)
 		
 		if(id.value === ''){
 			alert('아이디를 입력하세요.')
@@ -21,7 +22,9 @@
 			return false
 		}
 		return true
-	}
+		})
+	})
+}
 </script>
 </head>
 <body>

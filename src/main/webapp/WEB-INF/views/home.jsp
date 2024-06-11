@@ -26,7 +26,7 @@
 	
 =======
 	<c:if test="${ not empty logVO }">
-		<br><a href="${ pageContext.request.contextPath }/accountOpen">개좌 개설</a>
+		<br><a href="${ pageContext.request.contextPath }/accountOpen">계좌 개설</a>
 	</c:if>
 <<<<<<< HEAD
 	<c:if test="${ not empty logVO }">
