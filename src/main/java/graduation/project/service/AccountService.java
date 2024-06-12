@@ -11,5 +11,7 @@ public interface AccountService {
 
 	List<AccountVO> selectAccMy(String id) throws Exception;
 
-	List<HistoryVO> selectMyHis(int accNo) throws Exception;	
+	List<HistoryVO> selectMyHis(int accNo) throws Exception;
+
+	List<HistoryVO> allHistory(String id) throws Exception;	
 }

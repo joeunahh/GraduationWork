@@ -13,4 +13,6 @@ public interface AccountDAO {
 
 	List<HistoryVO> selectMyHis(int accNo) throws Exception;
 
+	List<HistoryVO> allHistory(String id) throws Exception;
+
 }
