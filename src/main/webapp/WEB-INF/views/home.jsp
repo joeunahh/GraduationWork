@@ -30,7 +30,12 @@
 		<br><a href="${ pageContext.request.contextPath }/accountList">내 계좌 보기</a>
 	</c:if>
 	<c:if test="${ not empty logVO }">
+<<<<<<< HEAD
 		<a href="${ pageContext.request.contextPath }/transfer">계좌 이체</a><br>
 	</c:if> <!-- 연결 안됨 -->
+=======
+		<br><a href="${ pageContext.request.contextPath }/accHistory">거래내역 한눈에 보기</a>
+	</c:if>
+>>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
 </body>
 </html>

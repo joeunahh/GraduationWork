@@ -32,4 +32,10 @@ public class AccountDAOImpl implements AccountDAO {
 		return list;
 	}
 
+	@Override
+	public List<HistoryVO> allHistory(String id) throws Exception {
+		List<HistoryVO> list = session.selectList("dao.AccountDAO.allHistory", id);
+		return list;
+	}
+
 }

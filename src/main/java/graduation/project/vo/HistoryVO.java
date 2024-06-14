@@ -13,11 +13,11 @@ public class HistoryVO {
 		super();
 	}
 
-	public HistoryVO(int no, int accNo, String catrgory, int amount, String date, String name) {
+	public HistoryVO(int no, int accNo, String category, int amount, String date, String name) {
 		super();
 		this.no = no;
 		this.accNo = accNo;
-		this.category = catrgory;
+		this.category = category;
 		this.amount = amount;
 		this.date = date;
 		this.name = name;
@@ -39,12 +39,12 @@ public class HistoryVO {
 		this.accNo = accNo;
 	}
 
-	public String getCatrgory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCatrgory(String catrgory) {
-		this.category = catrgory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public int getAmount() {
@@ -73,7 +73,7 @@ public class HistoryVO {
 	
 	@Override
 	public String toString() {
-		return "HistoryVO [no=" + no + ", accNo=" + accNo + ", catrgory=" + category + ", amount=" + amount + ", date="
+		return "HistoryVO [no=" + no + ", accNo=" + accNo + ", category=" + category + ", amount=" + amount + ", date="
 				+ date + ", name=" + name + "]";
 	}
 }

@@ -77,7 +77,18 @@ public class BankController { //은행
 	@GetMapping("history/{no}")
 	public String accHistory(@PathVariable("no") int accNo, HttpServletRequest request) throws Exception{
 		List<HistoryVO> list = service.selectMyHis(accNo);
-		System.out.println(list);
+		request.setAttribute("history", list);
+		
+		return "bank/accHistory";
+	}
+	
+	@GetMapping("accHistory")
+	public String historyAll(HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		CustomerVO log = (CustomerVO)session.getAttribute("logVO");
+		String id = log.getId();
+		
+		List<HistoryVO> list = service.allHistory(id);
 		request.setAttribute("history", list);
 		
 		return "bank/accHistory";

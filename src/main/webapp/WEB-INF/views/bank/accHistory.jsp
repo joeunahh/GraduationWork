@@ -13,21 +13,43 @@
 			location.href = "${ pageContext.request.contextPath }"
 		})
 	})
+	
+	$(document).ready(function(){
+		$('#accListBtn').click(function(){
+			location.href = "${ pageContext.request.contextPath }/accountList"
+		})
+	})
 </script>
+<style>
+    table.history {
+        width: 50%;
+        border-collapse: collapse;
+    }
+    table.history th, table.history td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    table.history th {
+        background-color: #f2f2f2;
+    }
+</style>
 </head>
 <body>
 	<div align="center">
 		<h1>거래 내역</h1>
 		<hr>
-		<table>
+		<table class="history">
 			<tr>
-				<th width="25%">거래 날짜</th>				
-				<th width="10%">거래자 명</th>				
-				<th width="20%">분류</th>
+				<th width="15%">계좌 번호</th>
+				<th width="10%">거래 날짜</th>				
+				<th width="15%">거래자 명</th>				
+				<th width="10%">분류</th>
 				<th width="15%">거래 금액</th>
 			</tr>
 			<c:forEach items="${ history }" var="his">
 				<tr>
+					<td>${ his.accNo }</td>
 					<td>${ his.date }</td>
 					<td>${ his.name }</td>
 					<td>${ his.category }</td>
@@ -37,6 +59,7 @@
 		</table>
 		<br>
 		<button id="mainBtn">메인페이지</button>
+		<button id="accListBtn">내 계좌 보기</button>
 	</div>
 </body>
 </html>

@@ -21,4 +21,12 @@
 		 from bank_history
 		 where acc_no = #{no}
 	</select>
+	
+	<select id="allHistory" parameterType="String" resultType="historyVO">
+		select bh.no, bh.acc_no as accNo, bh.acc_no as accNo, bh.his_category as category, bh.his_amount as amount,
+		 to_char(bh.his_date, 'yyyy-mm-dd') as "date", bh.his_name as name
+		 from bank_history bh
+		 join bank_account ba ON bh.acc_no = ba.account_number
+		 where ba.account_id = #{id}
+	</select>
 </mapper>
