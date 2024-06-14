@@ -70,10 +70,22 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 	@GetMapping("/updateForm")
 	public String updateForm(Model model, HttpSession session) {
 		CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
-		if(userVO==null) return "customer/login";	// 로그아웃 버튼은 로그인시에 나오기때문에 이줄 코드는 딱히 필요없음
 		model.addAttribute("service", userVO);
 		return "customer/updateForm";
 	}
+	
+//	@RequestMapping("/login") 
+//	@ResponseBody
+//	public Map<Object, Object> idcheck(@RequestBody String userid) {
+//		int count = 0;
+//		Map<Object, Object> map = new HashMap<Object, Object>();
+//		
+//		count = CustomerService.idcheck(userid);
+//		map.put("cnt", count);
+//		
+//		return map;
+//	}
+	
 	
 	//@GetMapping("deleteForm")
 	//public String deleteForm() {

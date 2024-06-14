@@ -26,6 +26,10 @@ public class AccountServiceImpl implements AccountService {
 		return list;
 	}
 
+	public void openAccountt(AccountVO acc) throws Exception {
+		dao.openAcc(acc);
+	}
+	
 	@Override
 	public List<HistoryVO> selectMyHis(int accNo) throws Exception{
 		List<HistoryVO> list = dao.selectMyHis(accNo);
