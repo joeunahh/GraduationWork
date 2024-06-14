@@ -10,38 +10,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-		//'아이디 중복 체크'버튼 클릭 시 비동기 통신으로 서버에 전송 
-		//https://kingchobocoding.tistory.com/11
-		$(document).ready(function() {
-			$('button').click(function() {
-				//0. 아이디 추출
-				let id = $('#id').val()
-				//1. url 설정 
-					$.ajax({ 
-						url: 'param.jsp',
-						type: 'post',
-						data: { id:id },
-						success : function(result) {
-								if(result.cnt > 0) {
-									alert('아이디가 존재합니다. 다른 아이디를 입력해주세요.')
-								} else {
-									alert('사용 가능한 아이디입니다.')
-									idck = 1;
-								} 
-							},
-							error : function(error) {
-								alert("error : " + error);
-					}
-				} 
-			}
-		})
-	})
-	
+	var url = "<%= request.getContextPath() %>"
 	let checkId = function(id){
+		console.log(id)
 		$.ajax({
-			url : '${ pageContext.request.contextPath }/checkId',
+			url : url + '/checkId',
 			type : 'POST',
-			data : { id: $('#id').val() },
+			data : { id: id },
+			dataType : 'json',
 			success : function(result){
 				console.log(result)
 				if(result === true){
@@ -67,7 +43,7 @@
 	<div align="center">
 		<h1>회원가입</h1>
 		<hr>
-		<form:form method="post" modelAttribute="customerVO">
+		<form:form method="post" modelAttribute="customerVO" autocomplete="off">
 			<table border="1" style="width: 30%">
 				<tr>
 					<th></th>
@@ -76,7 +52,7 @@
 				<tr>
 					<th width="25%">아이디*</th>
 					<td>
-						<form:input path="id" id="id"/>
+						<form:input path="id" name="id"/>
 						<button onclick="checkId(id)">중복 체크</button>
 						<form:errors path="id" class="error"/>
 						<button>아이디 중복 체크</button>

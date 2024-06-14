@@ -86,8 +86,10 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 	public boolean checkId(@RequestBody String id) throws Exception {
 		CustomerVO check = service.checkID(id); 
 		if(check != null) {
+			System.out.println(check);
 			return false;
 		}else {
+			System.out.println(check);
 			return true;
 		}
 	}
