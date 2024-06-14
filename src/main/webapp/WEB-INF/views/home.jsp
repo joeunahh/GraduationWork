@@ -29,5 +29,8 @@
 	<c:if test="${ not empty logVO }">
 		<br><a href="${ pageContext.request.contextPath }/accountList">내 계좌 보기</a>
 	</c:if>
+	<c:if test="${ not empty logVO }">
+		<a href="${ pageContext.request.contextPath }/transfer">계좌 이체</a><br>
+	</c:if> <!-- 연결 안됨 -->
 </body>
 </html>

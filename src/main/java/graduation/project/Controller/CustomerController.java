@@ -1,7 +1,7 @@
 package graduation.project.Controller;
 
-<<<<<<< HEAD
-import java.util.HashMap;
+//<<<<<<< HEAD
+//import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 =======
@@ -77,7 +77,6 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 	@GetMapping("/updateForm")
 	public String updateForm(Model model, HttpSession session) {
 		CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
-		if(userVO==null) return "customer/login";	// 로그아웃 버튼은 로그인시에 나오기때문에 이줄 코드는 딱히 필요없음
 		model.addAttribute("service", userVO);
 		return "customer/updateForm";
 	}
@@ -86,12 +85,12 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		@ResponseBody
 		public Map<Object, Object> idcheck(@RequestBody String userid) {
 			int count = 0;
-			Map<Object, Object> map = new HashMap<Object, Object>();
+//			Map<Object, Object> map = new HashMap<Object, Object>();
 			
-			count = CustomerService.idcheck(userid);
-			map.put("cnt", count);
+			//count = CustomerService.idcheck(userid);
+//			map.put("cnt", count);
 			
-			return map;
+//			return map;
 	}
 	
 	
