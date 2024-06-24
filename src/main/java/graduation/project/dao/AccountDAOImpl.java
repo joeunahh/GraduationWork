@@ -27,7 +27,7 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public List<HistoryVO> selectMyHis(int accNo) throws Exception {
+	public List<HistoryVO> selectMyHis(String accNo) throws Exception {
 		List<HistoryVO> list = session.selectList("dao.AccountDAO.selectMyHis", accNo);
 		return list;
 	}

@@ -14,6 +14,10 @@
 			location.href = "${ pageContext.request.contextPath }"
 		})
 	})
+	
+	$('#accPwd').on('input', function(){
+		this.value = this.value.replace(/[^0-9]/g, '')
+	})
 </script>
 <style>
 	.error{
@@ -38,7 +42,7 @@
 				<tr>
 					<th width="25%">비밀번호</th>
 					<td>
-						<form:password path="accPwd" name="pwdCheck"/>
+						<form:password path="accPwd" id="accPwd" name="pwdCheck"/>
 						<form:errors path="accPwd" class="error"/>
 					</td>
 				</tr>

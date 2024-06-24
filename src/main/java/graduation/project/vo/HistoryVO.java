@@ -3,7 +3,7 @@ package graduation.project.vo;
 public class HistoryVO {
 
 	private int no;
-	private int accNo;
+	private String accNo;
 	private String category;
 	private int amount;
 	private String date;
@@ -13,7 +13,7 @@ public class HistoryVO {
 		super();
 	}
 
-	public HistoryVO(int no, int accNo, String category, int amount, String date, String name) {
+	public HistoryVO(int no, String accNo, String category, int amount, String date, String name) {
 		super();
 		this.no = no;
 		this.accNo = accNo;
@@ -31,11 +31,11 @@ public class HistoryVO {
 		this.no = no;
 	}
 
-	public int getAccNo() {
+	public String getAccNo() {
 		return accNo;
 	}
 
-	public void setAccNo(int accNo) {
+	public void setAccNo(String accNo) {
 		this.accNo = accNo;
 	}
 

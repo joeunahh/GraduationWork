@@ -31,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 	
 	@Override
-	public List<HistoryVO> selectMyHis(int accNo) throws Exception{
+	public List<HistoryVO> selectMyHis(String accNo) throws Exception{
 		List<HistoryVO> list = dao.selectMyHis(accNo);
 		return list;
 	}
