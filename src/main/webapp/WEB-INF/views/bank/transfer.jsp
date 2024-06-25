@@ -15,20 +15,20 @@
 	<form:form method="post" modelAttribute="accVO"	autocomplete="off">
     <table>
         <tr>
-            <td><label for="fromAccount">보내는 분 계좌번호 :</label></td>
-            <td><form:input path="fromAccount" id="fromAccount" required readonly="true" />${ accVO.accNo }</td>
+            <td><label>보내는 분 계좌번호 :</label></td>
+            <td><form:input path="fromAccount" id="fromAccount" required="true" readonly="true" />${ accVO.accNo }</td>
         </tr>
         <tr>
-            <td><label for="toAccount">받는 분 계좌번호 :</label></td>
-            <td><form:input path="toAccount" id="toAccount" required /></td>
+            <td><label>받는 분 계좌번호 :</label></td>
+            <td><form:input path="toAccount" id="toAccount" required="true" /></td>
         </tr>
         <tr>
-            <td><label for="amount">보낼 금액 :</label></td>
-            <td><form:input path="amount" id="amount" type="number" step="0.01" required/></td>
+            <td><label>보낼 금액 :</label></td>
+            <td><form:input path="amount" id="amount" type="number" step="0.01" required="true"/></td>
         </tr>
         <tr>
-            <td><label for="name">거래 대상 :</label></td>
-            <td><form:input path="name" id="name" type="text" step="0.01" required/></td>
+            <td><label>거래 대상 :</label></td>
+            <td><form:input path="name" id="name" type="text" step="0.01" required="true"/></td>
         </tr>
         <tr>
             <td colspan="2">

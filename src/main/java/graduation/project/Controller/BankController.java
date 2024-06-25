@@ -96,7 +96,7 @@ public class BankController { //은행
 	}
 	
 	@GetMapping("transfer")
-	public String transferForm(HttpServletRequest request, Model model) throws Exception{
+	public String transferForm() throws Exception{
 		
 
         return "bank/transfer";
