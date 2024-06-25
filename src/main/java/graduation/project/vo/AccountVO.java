@@ -1,15 +1,16 @@
 package graduation.project.vo;
 
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 
 public class AccountVO {
 
-	private int accNo;
-	@Digits(integer = 4, fraction = 0, message = "비밀번호는 숫자 4자리로 입력하세요.")
-	@NotNull(message = "필수 항목입니다.")
-	private int accPwd;
+	private String accNo;
+	@Length(min = 4, max = 4, message = "비밀번호는 4자리의 숫자를 입력해주세요.")
+	@NotEmpty(message = "비밀번호는 필수항목입니다.")
+	private String accPwd;
 	private String name;
 	private String accName;
 	private String id;
@@ -19,7 +20,7 @@ public class AccountVO {
 	public AccountVO() {
 	}
 	
-	public AccountVO(int accNo, int accPwd, String name, String accName, String id, int balance, String date) {
+	public AccountVO(String accNo, String accPwd, String name, String accName, String id, int balance, String date) {
 		super();
 		this.accNo = accNo;
 		this.accPwd = accPwd;
@@ -36,16 +37,16 @@ public class AccountVO {
 	public void setAccName(String accName) {
 		this.accName = accName;
 	}
-	public int getAccNo() {
+	public String getAccNo() {
 		return accNo;
 	}
-	public void setAccNo(int accNo) {
+	public void setAccNo(String accNo) {
 		this.accNo = accNo;
 	}
-	public int getAccPwd() {
+	public String getAccPwd() {
 		return accPwd;
 	}
-	public void setAccPwd(int accPwd) {
+	public void setAccPwd(String accPwd) {
 		this.accPwd = accPwd;
 	}
 	public String getName() {

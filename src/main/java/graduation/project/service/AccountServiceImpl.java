@@ -16,13 +16,6 @@ public class AccountServiceImpl implements AccountService {
 	private AccountDAO dao;
 	
 	@Override
-//<<<<<<< HEAD
-////<<<<<<< HEAD
-////<<<<<<< HEAD
-////=======
-////>>>>>>> 78c26ca257f62db6fe52b19fce46c2283ccc9dbf
-//=======
-//>>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
 	public void openAccount(AccountVO acc) throws Exception{
 		dao.openAcc(acc);
 	}
@@ -33,19 +26,12 @@ public class AccountServiceImpl implements AccountService {
 		return list;
 	}
 
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
 	public void openAccountt(AccountVO acc) throws Exception {
 		dao.openAcc(acc);
 	}
-//>>>>>>> eaacdf7f0af8d61f408ded6517c23652c241d10e
-
-//=======
-//=======
-//>>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
+	
 	@Override
-	public List<HistoryVO> selectMyHis(int accNo) throws Exception{
+	public List<HistoryVO> selectMyHis(String accNo) throws Exception{
 		List<HistoryVO> list = dao.selectMyHis(accNo);
 		return list;
 	}

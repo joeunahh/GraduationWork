@@ -12,10 +12,10 @@
 		select account_number as accNo, account_holder as name, account_nicname as accName, balance, 
 		 to_char(account_date, 'yyyy-mm-dd') as "date"
 		 from bank_account
-		 where account_id = #{id}
+		 where account_id = #{id} <!-- ACCOUNT_ID : 부적합한 식별자 -->
 	</select>
 	
-	<select id="selectMyHis" parameterType="int" resultType="historyVO">
+	<select id="selectMyHis" parameterType="String" resultType="historyVO">
 		select no, acc_no as accNo, his_category as category, his_amount as amount,
 		 to_char(his_date, 'yyyy-mm-dd') as "date", his_name as name
 		 from bank_history

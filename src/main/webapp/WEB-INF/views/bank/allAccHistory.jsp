@@ -43,7 +43,7 @@
 </head>
 <body>
 	<div align="center">
-		<h1>거래 내역</h1>
+		<h1>거래 내역 전체 조회</h1>
 		<hr>
 		<table class="history">
 			<tr>
@@ -53,7 +53,7 @@
 				<th width="10%">분류</th>
 				<th width="15%">거래 금액</th>
 			</tr>
-			<c:forEach items="${ history }" var="his">
+			<c:forEach items="${ historyAll }" var="his">
 				<tr>
 					<td>${ his.accNo }</td>
 					<td>${ his.date }</td>
@@ -64,10 +64,6 @@
 			</c:forEach>
 		</table>
 		<br>
-		<form action="${pageContext.request.contextPath}/transfer" method="get">
-        	<input type="hidden" name="accNo" value="${his.accNo}" />
-        	<button type="submit">이체</button>
-    	</form>
 		<br><button id="mainBtn">메인페이지</button>
 		<button id="accListBtn">내 계좌 보기</button>
 	</div>

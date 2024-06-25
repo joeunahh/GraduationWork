@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,25 +40,25 @@ public class BankController { //은행
 	}
 	
 	@PostMapping("accountOpen")
-	public String openAcc(@Valid AccountVO acc, BindingResult result, HttpSession session) throws Exception{
+	public String openAcc(@Valid @ModelAttribute("accVO") AccountVO acc, BindingResult result, HttpSession session) throws Exception{
 		if(result.hasErrors()) {
 			return "bank/openAccount";
 		}else {
 			Random r = new Random();
-			int no = 0;
+			StringBuilder no = new StringBuilder();
 			for(int i = 0; i < 12; i++) {
-	            int digit = r.nextInt(10);
-	            no = no * 10 + digit;
+	            no.append(r.nextInt(9) + 1);
 	        }
+			
+			String accNo = no.toString();
 			
 			CustomerVO log = (CustomerVO)session.getAttribute("logVO");
 			
 			acc.setId(log.getId());
-			acc.setAccNo(no);
+			acc.setAccNo(accNo);
 			if(!acc.getAccName().equals("")) {
 				acc.setAccName(acc.getAccName());
 			}
-			System.out.println(acc);
 			service.openAccount(acc);
 			return "redirect:/";
 		}
@@ -75,7 +76,7 @@ public class BankController { //은행
 	}
 	
 	@GetMapping("history/{no}")
-	public String accHistory(@PathVariable("no") int accNo, HttpServletRequest request) throws Exception{
+	public String accHistory(@PathVariable("no") String accNo, HttpServletRequest request) throws Exception{
 		List<HistoryVO> list = service.selectMyHis(accNo);
 		request.setAttribute("history", list);
 		
@@ -89,8 +90,15 @@ public class BankController { //은행
 		String id = log.getId();
 		
 		List<HistoryVO> list = service.allHistory(id);
-		request.setAttribute("history", list);
+		request.setAttribute("historyAll", list);
 		
-		return "bank/accHistory";
+		return "bank/allAccHistory";
+	}
+	
+	@GetMapping("transfer")
+	public String transferForm(HttpServletRequest request, Model model) throws Exception{
+		
+
+        return "bank/transfer";
 	}
 }
