@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>은행</title>
 </head>
 <body>
 	<h1>현재 계정 : ${ logVO.name }</h1>
@@ -29,13 +29,18 @@
 	<c:if test="${ not empty logVO }">
 		<br><a href="${ pageContext.request.contextPath }/accountList">내 계좌 보기</a>
 	</c:if>
+	
 	<c:if test="${ not empty logVO }">
-<<<<<<< HEAD
-		<a href="${ pageContext.request.contextPath }/transfer">계좌 이체</a><br>
-	</c:if> <!-- 연결 안됨 -->
-=======
-		<br><a href="${ pageContext.request.contextPath }/accHistory">거래내역 한눈에 보기</a>
-	</c:if>
->>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
+		<br><a href="${ pageContext.request.contextPath }/transfer">계좌 이체</a><br>
+	</c:if> 
+	<c:if test="${ not empty logVO }">
+		<br><a href="${ pageContext.request.contextPath }/register">상품 등록</a><br>
+	</c:if> 
+
+<!-- ======= -->
+	<c:if test="${ not empty logVO }">
+		<br><a href="${ pageContext.request.contextPath }/accHistory">거래내역 한눈에 보기</a><br>
+	</c:if> 
+<!-- >>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2 -->
 </body>
 </html>

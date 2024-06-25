@@ -1,11 +1,11 @@
 package graduation.project.Controller;
 
-<<<<<<< HEAD
 //<<<<<<< HEAD
-//import java.util.HashMap;
-=======
+////<<<<<<< HEAD
+////import java.util.HashMap;
+//=======
 import java.util.HashMap;
->>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
+//>>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -79,10 +79,10 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		return "customer/updateForm";
 	}
 	
-<<<<<<< HEAD
-	@RequestMapping("/login") 
-		@ResponseBody
-		public Map<Object, Object> idcheck(@RequestBody String userid) {
+//<<<<<<< HEAD
+//	@RequestMapping("/login") 
+//		@ResponseBody
+//		public Map<Object, Object> idcheck(@RequestBody String userid) {
 			int count = 0;
 //			Map<Object, Object> map = new HashMap<Object, Object>();
 			
@@ -90,12 +90,12 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 //			map.put("cnt", count);
 			
 //			return map;
-	}
-	
-	
-=======
->>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
-	//@GetMapping("deleteForm")
+//	}
+//	
+//	
+//=======
+//>>>>>>> 1f162aa5e9f0a01092573c177074b984c87b86d2
+//	//@GetMapping("deleteForm")
 	//public String deleteForm() {
 		//CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
 		

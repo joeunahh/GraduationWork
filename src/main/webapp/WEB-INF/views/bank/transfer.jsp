@@ -28,7 +28,7 @@
 			<div class="message">
 				${message}
 			</div>
-		</c:if>
+		</c:if>		
 	</from>
 </body>
 </html>
