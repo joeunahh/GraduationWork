@@ -64,6 +64,7 @@
 			</c:forEach>
 		</table>
 		<br>
+		<button id="transferBtn">이체하기</button>
 		<br><button id="mainBtn">메인페이지</button>
 		<button id="accListBtn">내 계좌 보기</button>
 	</div>
