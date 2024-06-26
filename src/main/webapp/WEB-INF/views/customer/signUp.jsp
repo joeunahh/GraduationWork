@@ -11,26 +11,59 @@
 <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
 	let url = "<%= request.getContextPath() %>"
-	let checkId = function(id){
+	let isIdAvailable = false
+	let isPasswordMatched = false
+	
+	$(document).ready(function(){
+		$('#signupBtn').click(function(event){
+			if(!isIdAvailable){
+				$('#idStatus').text('중복체크를 해주세요.').css('color', 'red')
+				event.preventDefault()
+				return
+			}
+			if(!isPasswordMatched){
+                $('#passwordStatus').text('비밀번호가 일치하지 않습니다.').css('color', 'red')
+                event.preventDefault()
+                return
+            }
+		})
+	})
+	
+	$('#pwd, #confirmPwd').on('keyup blur', function () {
+		checkPwd()
+	})
+	
+	let checkPwd = function(){
+        if ($('#pwd').val().equals($('#confirmPwd').val())) {
+            $('#passwordStatus').text('✔️ 비밀번호가 일치합니다.').css('color', 'green')
+            isPasswordMatched = true
+        } else {
+            $('#passwordStatus').text('❌ 비밀번호가 일치하지 않습니다.').css('color', 'red')
+            isPasswordMatched = false
+        }
+	}
+	
+	let checkId = function(){
+		let id = $('#id').val()
 		$.ajax({
 			url : url + '/checkId?id=' + id,
 			type : 'GET',
 			dataType : 'json',
 			success : function(result){
 				console.log(result)
-				if(result.result){
-					alert('사용가능한 아이디입니다.')
+				if(result == true){
+					$('#idStatus').text('✔️ 사용 가능한 아이디입니다.').css('color', 'green')
+					isIdAvailable = true
 				}else{
-					alert('이미 사용중인 아이디입니다.')
+					$('#idStatus').text('❌ 이미 사용 중인 아이디입니다.').css('color', 'red')
+					isIdAvailable = false
 				}
 			}, error : function(error, status, xhr){
-				console.log("Error: " + error);
-			    console.log("Status: " + status);
-			    console.log("Response: " + xhr.responseText);
-				alert('아직 개발중입니다.')
+				alert('중복체크중 오류가 발생했습니다.')
 			}
 		})
 	}
+	
 </script>
 <style>
 	.error, .txt{
@@ -44,7 +77,7 @@
 	<div align="center">
 		<h1>회원가입</h1>
 		<hr>
-		<form:form method="post" modelAttribute="customerVO" autocomplete="off">
+		<form:form id="signupForm" method="post" modelAttribute="customerVO" autocomplete="off">
 			<table border="1" style="width: 30%">
 				<tr>
 					<th></th>
@@ -54,7 +87,8 @@
 					<th width="25%">아이디*</th>
 					<td>
 						<form:input path="id" id="id"/>
-						<button onclick="checkId('${ customerVO.id }')">중복 체크</button>
+						<button  type="button" onclick="checkId()">중복 체크</button>
+						<span id="idStatus"></span>
 						<form:errors path="id" class="error"/>
 					</td>
 				</tr>
@@ -65,6 +99,13 @@
 						<form:errors path="pwd" class="error"/>
 					</td>
 				</tr>
+				<tr>
+		            <th width="30%">비밀번호 확인*</th>
+		            <td>
+		                <input type="password" id="confirmPwd"/>
+		                <span id="passwordStatus"></span>
+		            </td>
+		        </tr>
 				<tr>
 					<th width="25%">이름*</th>
 					<td>
@@ -88,7 +129,7 @@
 				</tr>
 			</table>
 			<br>
-			<button type="submit">가입</button><br>
+			<button id="signupBtn" type="submit">가입</button><br>
 		</form:form>
 		<br>
 		<button id="mainBtn">메인화면으로</button>

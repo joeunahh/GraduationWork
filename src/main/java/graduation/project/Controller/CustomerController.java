@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -53,14 +52,11 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 	
 	@PostMapping("/signUp")
 	public String signUp(@Valid CustomerVO customer, BindingResult result) throws Exception{
-		CustomerVO idCheck = service.checkID(customer.getId());
 		if(result.hasErrors()) {
 			return "customer/signUp";			
-		}else if(idCheck == null) {
+		}else {
 			service.signUp(customer);
 			return "redirect:/";
-		}else {
-			return "customer/signUp";
 		}
 	}
 	
@@ -77,6 +73,7 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		CustomerVO check = service.checkID(id);
 		System.out.println(id);
 		System.out.println(check);
+		System.out.println(check == null);
 		return check == null;
 	}
 }
