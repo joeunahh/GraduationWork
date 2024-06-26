@@ -60,6 +60,7 @@ public class BankController { //은행
 				acc.setAccName(acc.getAccName());
 			}
 			service.openAccount(acc);
+			service.insertHistory(acc.getAccNo());
 			return "redirect:/";
 		}
 	}

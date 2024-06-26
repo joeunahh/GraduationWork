@@ -41,4 +41,9 @@ public class AccountServiceImpl implements AccountService {
 		List<HistoryVO> list = dao.allHistory(id);
 		return list;
 	}
+
+	@Override
+	public void insertHistory(String accNo) {
+		dao.insertHistory(accNo);
+	}
 }

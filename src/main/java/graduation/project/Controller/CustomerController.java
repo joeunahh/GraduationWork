@@ -4,12 +4,13 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import graduation.project.service.CustomerService;
@@ -70,35 +71,12 @@ public class CustomerController { // 사용자 로그인 로그아웃 회원가�
 		return "customer/updateForm";
 	}
 	
-//	@RequestMapping("/login") 
-//	@ResponseBody
-//	public Map<Object, Object> idcheck(@RequestBody String userid) {
-//		int count = 0;
-//		Map<Object, Object> map = new HashMap<Object, Object>();
-//		
-//		count = CustomerService.idcheck(userid);
-//		map.put("cnt", count);
-//		
-//		return map;
-//	}
-	
-	
-	//@GetMapping("deleteForm")
-	//public String deleteForm() {
-		//CustomerVO userVO = (CustomerVO) session.getAttribute("userVO");
-		
-	//}
-	
-	@PostMapping("/checkId")
+	@GetMapping("/checkId")
 	@ResponseBody
-	public boolean checkId(@RequestBody String id) throws Exception {
-		CustomerVO check = service.checkID(id); 
-		if(check != null) {
-			System.out.println(check);
-			return false;
-		}else {
-			System.out.println(check);
-			return true;
-		}
+	public boolean checkId(@RequestParam("id") String id) throws Exception {
+		CustomerVO check = service.checkID(id);
+		System.out.println(id);
+		System.out.println(check);
+		return check == null;
 	}
 }

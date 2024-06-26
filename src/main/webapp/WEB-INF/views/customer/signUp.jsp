@@ -10,22 +10,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-	var url = "<%= request.getContextPath() %>"
+	let url = "<%= request.getContextPath() %>"
 	let checkId = function(id){
-		console.log(id)
 		$.ajax({
-			url : url + '/checkId',
-			type : 'POST',
-			data : { id: id },
+			url : url + '/checkId?id=' + id,
+			type : 'GET',
 			dataType : 'json',
 			success : function(result){
 				console.log(result)
-				if(result === true){
+				if(result.result){
 					alert('사용가능한 아이디입니다.')
 				}else{
 					alert('이미 사용중인 아이디입니다.')
 				}
-			}, error : function(){
+			}, error : function(error, status, xhr){
+				console.log("Error: " + error);
+			    console.log("Status: " + status);
+			    console.log("Response: " + xhr.responseText);
 				alert('아직 개발중입니다.')
 			}
 		})
@@ -52,8 +53,8 @@
 				<tr>
 					<th width="25%">아이디*</th>
 					<td>
-						<form:input path="id" name="id"/>
-						<button onclick="checkId(id)">중복 체크</button>
+						<form:input path="id" id="id"/>
+						<button onclick="checkId('${ customerVO.id }')">중복 체크</button>
 						<form:errors path="id" class="error"/>
 					</td>
 				</tr>

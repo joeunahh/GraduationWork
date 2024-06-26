@@ -29,4 +29,9 @@
 		 join bank_account ba ON bh.acc_no = ba.account_number
 		 where ba.account_id = #{id}
 	</select>
+	
+	<insert id="insertHistory" parameterType="String">
+		insert into bank_history(no, acc_no, his_category, his_amount, his_name)
+		 values(seq_bank_history_no.nextval, #{accNo}, '입금', 10000, '첫 개설입금')
+	</insert>
 </mapper>

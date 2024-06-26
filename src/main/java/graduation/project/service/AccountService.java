@@ -13,5 +13,7 @@ public interface AccountService {
 
 	List<HistoryVO> selectMyHis(String accNo) throws Exception;
 
-	List<HistoryVO> allHistory(String id) throws Exception;	
+	List<HistoryVO> allHistory(String id) throws Exception;
+
+	void insertHistory(String accNo);	
 }

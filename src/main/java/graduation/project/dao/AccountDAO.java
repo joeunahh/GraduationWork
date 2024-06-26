@@ -15,4 +15,6 @@ public interface AccountDAO {
 
 	List<HistoryVO> allHistory(String id) throws Exception;
 
+	void insertHistory(String accNo);
+
 }

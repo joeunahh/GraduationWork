@@ -38,4 +38,9 @@ public class AccountDAOImpl implements AccountDAO {
 		return list;
 	}
 
+	@Override
+	public void insertHistory(String accNo) {
+		session.insert("dao.AccountDAO.insertHistory", accNo);
+	}
+
 }
