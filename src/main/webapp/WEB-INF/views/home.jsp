@@ -61,7 +61,12 @@
 
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
-                <h1>${logVO.name} 님, 안녕하세요.</h1>
+              	<c:if test="${ empty logVO }">
+              		<h1>게스트님, 안녕하세요</h1>
+              	</c:if>
+              	<c:if test="${ not empty logVO }">
+                	<h1>${logVO.name} 님, 안녕하세요.</h1>
+                </c:if>
                 <li class="nav-item active">
                   <c:if test="${ empty logVO }">
                     <a href="${ pageContext.request.contextPath }/signUp">회원가입</a><br>

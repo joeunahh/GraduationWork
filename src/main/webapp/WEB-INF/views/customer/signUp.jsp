@@ -26,7 +26,7 @@
 					alert('이미 사용중인 아이디입니다.')
 				}
 			}, error : function(){
-				alert('오류가 발생했습니다. 다시 시도해주세요.')
+				alert('아직 개발중입니다.')
 			}
 		})
 	}
@@ -55,7 +55,6 @@
 						<form:input path="id" name="id"/>
 						<button onclick="checkId(id)">중복 체크</button>
 						<form:errors path="id" class="error"/>
-						<button>아이디 중복 체크</button>
 					</td>
 				</tr>
 				<tr>

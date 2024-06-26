@@ -11,8 +11,7 @@
 <body>
 	<div align="center">
 	<h2>계좌 이체</h2>
-<<<<<<< HEAD
-	<from action = "${pageContext.request.contextPath}/transfer" method="post">
+	<form action = "${pageContext.request.contextPath}/transfer" method="post">
 		<div> 
 			<label for="fromAccount">보내는 분 계좌번호 :</label>
 			<input type="text" id="fromAccount" name="fromAccount" required>
@@ -33,8 +32,7 @@
 				${message}
 			</div>
 		</c:if>		
-	</from>
-=======
+	</form>
 	<hr>
 	<form:form method="post" modelAttribute="accVO"	autocomplete="off">
     <table>
@@ -67,6 +65,5 @@
     </c:if>
 	</form:form>
 	</div>
->>>>>>> 7d811dbf0b4e765a5cec732df1a4de3410fc6231
 </body>
 </html>
